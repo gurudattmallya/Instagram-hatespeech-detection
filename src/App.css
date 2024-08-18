@@ -1,0 +1,83 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgb(246,188,100);
+  background: -moz-radial-gradient(circle, rgba(246,188,100,1) 10%, rgba(246,100,100,1) 46%, rgba(255,129,0,1) 84%);
+  background: -webkit-radial-gradient(circle, rgba(246,188,100,1) 10%, rgba(246,100,100,1) 46%, rgba(255,129,0,1) 84%);
+  background: radial-gradient(circle, rgba(246,188,100,1) 10%, rgba(246,100,100,1) 46%, rgba(255,129,0,1) 84%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#f6bc64",endColorstr="#ff8100",GradientType=1);
+  height: 100vh;
+  overflow-y: scroll;
+  
+  
+  .container
+  {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  justify-content: center;
+  border: 1px solid rgb(194, 95, 255);
+  padding: 200px;
+  background-color:rgba(227, 37, 37,0.4);
+  backdrop-filter: blur(0px) saturate(180%);
+  border-radius: 20px;
+
+  h1
+  {
+    font-size: 36px;
+    color: white;
+  }
+  input {
+    padding: 20px;
+
+    font-size: 20px;
+    width: 300px;
+    height: 5px;
+    margin-right: 10px;
+    border-radius: 10px;
+    background-color: #ffffff;
+  }
+  button
+  {
+    background-color: rgba(165, 41, 165,0.4);
+    border-radius: 10px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+  }
+  }
+
+
+
+  button {
+    padding: 10px 20px;
+  }
+  
+  .comments {
+    margin-top: 20px;
+  }
+  
+  .comments div {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #daee5b6f;
+
+    
+      a
+      {
+        color: rgb(255, 0, 0);
+        text-decoration: none;
+        font-size: 16px;
+        
+      }
+      
+  }
+
+}
+
+
+
