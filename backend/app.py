@@ -1,9 +1,21 @@
+import pandas as pd
+from tensorflow.keras.layers import TextVectorization
 import re
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import tensorflow as tf
 import numpy as np
-from tensorflow.keras.layers import TextVectorization
+
+df = pd.read_csv('comments.csv')
+X = df['comment_text']
+
+MAX_FEATURES = 200000 # number of words in the vocab
+
+vectorizer = TextVectorization(max_tokens=MAX_FEATURES,
+                               output_sequence_length=1800,
+                               output_mode='int')
+
+vectorizer.adapt(X.values)
 
 app = Flask(__name__)
 CORS(app)
@@ -11,13 +23,6 @@ CORS(app)
 # Load your model
 model = tf.keras.models.load_model('toxicity.h5')
 
-MAX_FEATURES = 200000  # Number of words in the vocabulary
-vectorizer = TextVectorization(max_tokens=MAX_FEATURES,
-                               output_sequence_length=1800,
-                               output_mode='int')
-
-# Adapt the vectorizer to some initial text or a dummy example
-vectorizer.adapt(["example text"])  # You can adapt this to any short dummy text
 
 def preprocess_text(text):
     sentences = re.split(r'(?<!\w\.\w.)(?<![A-Z][a-z]\.)(?<=\.|\?)\s', text)
